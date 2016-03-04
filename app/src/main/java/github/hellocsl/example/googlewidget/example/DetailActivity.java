@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.transition.Slide;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -108,6 +109,13 @@ public class DetailActivity extends BaseActivity {
         mCollapsingToolbarLayout.setStatusBarScrimColor(palette.getDarkMutedColor(primaryDark));
         mFloatingActionButton.setRippleColor(lightVibrantColor);
         mFloatingActionButton.setBackgroundTintList(ColorStateList.valueOf(vibrantColor));
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.setStatusBarColor(palette.getDarkMutedColor(primaryDark));
+            window.setNavigationBarColor(palette.getDarkMutedColor(primaryDark));
+        }
+
+
         Palette.Swatch vibrantSwatch = palette.getMutedSwatch();
         if (vibrantSwatch != null) {
             mTvTitle.setTextColor(vibrantSwatch.getTitleTextColor());
