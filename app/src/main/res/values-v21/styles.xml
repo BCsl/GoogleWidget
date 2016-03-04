@@ -1,0 +1,20 @@
+<resources>>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <!-- android transitions -->
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+    </style>
+
+    <style name="ToolbarTextAppearance"
+           parent="@android:style/TextAppearance.Material.Title">
+        <item name="android:textColor">@color/colorPrimaryIcons</item>
+    </style>
+    <style name="ToolbarSubTitleTextAppearance"
+           parent="@android:style/TextAppearance.Material.Subhead">
+        <item name="android:textColor">@color/colorPrimaryLight</item>
+    </style>
+
+</resources>

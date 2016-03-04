@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <item android:title="Main Item">
+        <menu>
+            <item
+                android:id="@+id/sub_palette"
+                android:icon="@drawable/ic_turned_in_not_black"
+                android:title="Palette"/>
+            <item
+                android:id="@+id/sub_nested_scrollview"
+                android:icon="@drawable/ic_turned_in_not_black"
+                android:title="NestedScrollView"/>
+            <item
+                android:id="@+id/sub_collapsing_toolbar_layout"
+                android:icon="@drawable/ic_turned_in_not_black"
+                android:title="CollapsingToolbarLayout"/>
+            <item
+                android:id="@+id/sub_tab_layout"
+                android:icon="@drawable/ic_turned_in_not_black"
+                android:title="TabLayout"/>
+            <item
+                android:id="@+id/sub_app_bar_layout"
+                android:icon="@drawable/ic_turned_in_not_black"
+                android:title="AppBarLayout"/>
+        </menu>
+    </item>
+    <item android:title="Social">
+        <menu>
+            <item
+                android:id="@+id/sub_github"
+                android:icon="@drawable/ic_person_outline_black"
+                android:title="Github"/>
+        </menu>
+    </item>
+
+</menu>

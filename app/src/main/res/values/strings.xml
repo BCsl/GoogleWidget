@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">GoogleWidget</string>
+    <string name="app_desc">Some new Widgets</string>
+
+
+    <string-array name="items">
+        <item>Palette</item>
+        <item>NestedScrollView</item>
+        <item>CollapsingToolbarLayout </item>
+        <item>TabLayout</item>
+        <item>AppBarLayout </item>
+    </string-array>
+
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string name="dest">A helper class to extract prominent colors from an image. A number of colors with different profiles are extracted from the image: Vibrant, Vibrant Dark,Vibrant Light,Muted,Muted Dark,Muted Light. These can be retrieved from the appropriate getter method. Instances are created with a Palette.Builder which supports several options to tweak the generated Palette. See that class\' documentation for more information. Generation should always be completed on a background thread, ideally the one in which you load your image on. Builder supports both synchronous and asynchronous generation. </string>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu.fixed"
+        android:title="MODE_FIXED"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu.scroller"
+        android:title="MODE_SCROLLABLE"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu.fill"
+        android:title="GRAVITY_FILL"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu.center"
+        android:title="GRAVITY_CENTER"
+        app:showAsAction="never"/>
+</menu>
