@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <FrameLayout
+        android:id="@+id/news_title_fl"
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginTop="-50dip"
+        android:background="@android:color/holo_blue_light"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/news_title_tv"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="12dip"
+            android:text="UC头条"
+            android:textColor="@android:color/white"
+        />
+    </FrameLayout>
+    <android.support.v4.widget.NestedScrollView
+        android:id="@id/id_uc_news_content"
+        android:layout_marginTop="100dip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="200dip"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/news_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_orange_light"
+        >
+
+        </android.support.v4.view.ViewPager>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
