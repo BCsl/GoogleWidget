@@ -21,9 +21,9 @@ import github.hellocsl.example.googlewidget.adapter.RecyclerViewAdapter;
 import github.hellocsl.example.googlewidget.base.BaseActivity;
 import github.hellocsl.example.googlewidget.example.AppBarLayoutActivity;
 import github.hellocsl.example.googlewidget.example.CollapsingToolbarActivity;
-import github.hellocsl.example.googlewidget.example.CoordinatorLayoutActivity;
 import github.hellocsl.example.googlewidget.example.PaletteActivity;
 import github.hellocsl.example.googlewidget.example.TabLayoutActivity;
+import github.hellocsl.example.googlewidget.example.UcMainPagerActivity;
 
 public class MainActivity extends BaseActivity implements RecyclerViewAdapter.OnItemClickListener {
     private RecyclerView mRecyclerView;
@@ -138,7 +138,7 @@ public class MainActivity extends BaseActivity implements RecyclerViewAdapter.On
                 startActivity(AppBarLayoutActivity.newIntent(MainActivity.this));
                 break;
             case 5:
-                startActivity(CoordinatorLayoutActivity.newIntent(MainActivity.this));
+                startActivity(UcMainPagerActivity.newIntent(MainActivity.this));
                 break;
             default:
                 break;

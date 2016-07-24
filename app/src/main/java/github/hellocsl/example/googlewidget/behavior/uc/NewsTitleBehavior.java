@@ -71,11 +71,41 @@ public class NewsTitleBehavior extends ViewOffsetBehavior<View> {
 
     @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int nestedScrollAxes) {
-        return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0;
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "onStartNestedScroll");
+        }
+        return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0 && canScroll(child, 0);
     }
+
+    @Override
+    public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dx, int dy, int[] consumed) {
+        super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "onNestedPreScroll() called with: dx = [" + dx + "], dy = [" + dy + "]");
+        }
+        float halfOfDis = dy / 2.0f;
+        if (!canScroll(child, halfOfDis)) {
+            // TODO: 16/7/23 可以把剩余的也消耗,而不是一定是一半 
+            return;
+        }
+        child.setTranslationY(child.getTranslationY() + halfOfDis);
+//        consumed[1] = (int) halfOfDis;
+    }
+
+    private boolean canScroll(View child, float pendingDy) {
+        int pendingTranslationY = (int) (child.getTranslationY() + pendingDy);
+        if (pendingTranslationY < child.getHeight() && pendingTranslationY >= 0) {
+            return true;
+        }
+        return false;
+    }
+
 
     @Override
     public void onNestedScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed) {
         super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed);
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "onNestedScroll() called with: child.getScrollY = [" + child.getScrollY() + "], target.getScrollY = [" + target.getScrollY() + "], dxConsumed = [" + dxConsumed + "], dyConsumed = [" + dyConsumed + "], dxUnconsumed = [" + dxUnconsumed + "], dyUnconsumed = [" + dyUnconsumed + "]");
+        }
     }
 }

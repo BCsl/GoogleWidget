@@ -10,7 +10,6 @@ import android.view.View;
 import java.util.ArrayList;
 
 import github.hellocsl.example.googlewidget.R;
-import github.hellocsl.example.googlewidget.adapter.TestFragmentAdapter;
 import github.hellocsl.example.googlewidget.base.BaseActivity;
 import github.hellocsl.example.googlewidget.behavior.uc.NewsTitleBehavior;
 
@@ -43,14 +42,13 @@ public class CoordinatorLayoutActivity extends BaseActivity {
 //                ViewCompat.offsetTopAndBottom(mNewsContent, -10);
 //            }
 //        });
-
         ArrayList<Fragment> fragments = new ArrayList<>(3);
         for (int i = 0; i < 4; i++) {
             fragments.add(TestFragment.newInstance(String.valueOf(i)));
         }
         mNewsContent = findViewById(R.id.id_uc_news_content);
-        mViewPager = (ViewPager) findViewById(R.id.news_pager);
-        mViewPager.setAdapter(new TestFragmentAdapter(fragments, getSupportFragmentManager()));
+//        mViewPager = (ViewPager) findViewById(R.id.news_pager);
+//        mViewPager.setAdapter(new TestFragmentAdapter(fragments, getSupportFragmentManager()));
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mTitle.getLayoutParams();
         NewsTitleBehavior newsTitleBehavior = new NewsTitleBehavior(mNewsContent);
         layoutParams.setBehavior(newsTitleBehavior);

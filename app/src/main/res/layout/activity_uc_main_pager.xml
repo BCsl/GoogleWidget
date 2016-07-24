@@ -7,20 +7,21 @@
     android:fitsSystemWindows="true">
 
     <FrameLayout
-        android:id="@+id/news_title_fl"
+        android:id="@id/id_uc_news_header_pager"
         android:layout_width="match_parent"
-        android:layout_height="50dip"
-        android:layout_marginTop="-50dip"
+        android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_light"
+        app:layout_behavior="@string/behavior_uc_header_pager"
         android:orientation="vertical">
         <TextView
             android:id="@+id/news_title_tv"
-            style="@style/TextAppearance.AppCompat.Body1"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="250dip"
             android:layout_gravity="center_vertical"
+            android:gravity="center"
             android:padding="12dip"
-            android:text="UC头条"
+            android:text="WeatherPager"
             android:textColor="@android:color/white"
         />
     </FrameLayout>
@@ -28,19 +29,10 @@
         android:id="@id/id_uc_news_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="100dip"
         android:minHeight="200dip"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/behavior_contents">
 
 
-        <!--<android.support.v4.view.ViewPager-->
-        <!--android:id="@+id/news_pager"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="600dip"-->
-        <!--android:background="@android:color/holo_orange_light"-->
-        <!--&gt;-->
-
-        <!--</android.support.v4.view.ViewPager>-->
         <LinearLayout android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                       android:background="@android:color/holo_green_light"
