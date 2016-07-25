@@ -13,23 +13,19 @@ import github.hellocsl.example.googlewidget.R;
 import github.hellocsl.example.googlewidget.behavior.uc.helper.ViewOffsetBehavior;
 
 /**
+ * 可滚动的新闻列表头部
+ * <p/>
  * Created by chensuilun on 16/7/24.
  */
 public class UcNewsHeaderPagerBehavior extends ViewOffsetBehavior {
     private static final String TAG = "UcNewsHeaderPager";
-    private final int HEADER_OFFSET_RANGE;
 
     public UcNewsHeaderPagerBehavior() {
-        HEADER_OFFSET_RANGE = 100;
     }
 
-    public UcNewsHeaderPagerBehavior(Context context) {
-        HEADER_OFFSET_RANGE = getHeaderOffsetRange();
-    }
 
     public UcNewsHeaderPagerBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
-        HEADER_OFFSET_RANGE = getHeaderOffsetRange();
     }
 
     @Override
@@ -42,7 +38,7 @@ public class UcNewsHeaderPagerBehavior extends ViewOffsetBehavior {
 
     private boolean canScroll(View child, float pendingDy) {
         int pendingTranslationY = (int) (child.getTranslationY() - pendingDy);
-        if (pendingTranslationY >= HEADER_OFFSET_RANGE && pendingTranslationY <= 0) {
+        if (pendingTranslationY >= getHeaderOffsetRange() && pendingTranslationY <= 0) {
             return true;
         }
         return false;
@@ -57,7 +53,7 @@ public class UcNewsHeaderPagerBehavior extends ViewOffsetBehavior {
         //dy>0 scroll up;dy<0,scroll down
         float halfOfDis = dy / 2.0f;
         if (!canScroll(child, halfOfDis)) {
-            child.setTranslationY(halfOfDis > 0 ? HEADER_OFFSET_RANGE : 0);
+            child.setTranslationY(halfOfDis > 0 ? getHeaderOffsetRange() : 0);
             return;
         }
         child.setTranslationY(child.getTranslationY() - halfOfDis);

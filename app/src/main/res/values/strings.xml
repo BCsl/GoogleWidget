@@ -21,4 +21,6 @@
     <string name="behavior_tab">github.hellocsl.example.googlewidget.behavior.uc.NewsTabsBehavior</string>
     <string name="behavior_contents">github.hellocsl.example.googlewidget.behavior.uc.UcNewsContentBehavior</string>
     <string name="behavior_uc_header_pager">github.hellocsl.example.googlewidget.behavior.uc.UcNewsHeaderPagerBehavior</string>
+    <string name="behavior_uc_title">github.hellocsl.example.googlewidget.behavior.uc.UcNewsTitleBehavior</string>
+    <string name="behavior_uc_news_tab">github.hellocsl.example.googlewidget.behavior.uc.UcNewsTabBehavior</string>
 </resources>

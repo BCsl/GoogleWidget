@@ -11,10 +11,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_blue_light"
-        app:layout_behavior="@string/behavior_uc_header_pager"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_behavior="@string/behavior_uc_header_pager">
         <TextView
-            android:id="@+id/news_title_tv"
+            android:id="@+id/news_tv_header_pager"
             style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="250dip"
@@ -25,6 +25,44 @@
             android:textColor="@android:color/white"
         />
     </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_marginTop="-45dip"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        app:layout_behavior="@string/behavior_uc_title">
+        <TextView
+            android:id="@+id/news_title_tv"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="UC头条"
+            android:textColor="@android:color/white"
+        />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/uc_news_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/uc_news_tabs_height"
+        android:background="@android:color/holo_orange_light"
+        android:orientation="vertical"
+        app:layout_behavior="@string/behavior_uc_news_tab">
+        <TextView
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:padding="12dip"
+            android:text="新闻1|新闻2|新闻3|新闻4"
+            android:textColor="@android:color/white"
+        />
+    </FrameLayout>
+
     <android.support.v4.widget.NestedScrollView
         android:id="@id/id_uc_news_content"
         android:layout_width="match_parent"
@@ -399,5 +437,8 @@
                 android:textColor="@android:color/white"
             />
         </LinearLayout>
+
     </android.support.v4.widget.NestedScrollView>
+
+
 </android.support.design.widget.CoordinatorLayout>

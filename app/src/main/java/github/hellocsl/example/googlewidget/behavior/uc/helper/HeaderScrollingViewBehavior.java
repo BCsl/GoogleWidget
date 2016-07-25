@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * Copy from Android design library
- * <p>
+ * <p/>
  * Created by chensuilun on 16/7/24.
  */
 public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
@@ -33,9 +33,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     }
 
     @Override
-    public boolean onMeasureChild(CoordinatorLayout parent, View child,
-                                  int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec,
-                                  int heightUsed) {
+    public boolean onMeasureChild(CoordinatorLayout parent, View child, int parentWidthMeasureSpec, int widthUsed, int parentHeightMeasureSpec, int heightUsed) {
         final int childLpHeight = child.getLayoutParams().height;
         if (childLpHeight == ViewGroup.LayoutParams.MATCH_PARENT || childLpHeight == ViewGroup.LayoutParams.WRAP_CONTENT) {
             // If the menu's height is set to match_parent/wrap_content then measure it
@@ -44,8 +42,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
             final List<View> dependencies = parent.getDependencies(child);
             final View header = findFirstDependency(dependencies);
             if (header != null) {
-                if (ViewCompat.getFitsSystemWindows(header)
-                        && !ViewCompat.getFitsSystemWindows(child)) {
+                if (ViewCompat.getFitsSystemWindows(header) && !ViewCompat.getFitsSystemWindows(child)) {
                     // If the header is fitting system windows then we need to also,
                     // otherwise we'll get CoL's compatible measuring
                     ViewCompat.setFitsSystemWindows(child, true);
@@ -64,16 +61,12 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                         availableHeight = parent.getHeight();
                     }
 
-                    final int height = availableHeight - header.getMeasuredHeight()
-                            + getScrollRange(header);
+                    final int height = availableHeight - header.getMeasuredHeight() + getScrollRange(header);
                     final int heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(height,
-                            childLpHeight == ViewGroup.LayoutParams.MATCH_PARENT
-                                    ? View.MeasureSpec.EXACTLY
-                                    : View.MeasureSpec.AT_MOST);
+                            childLpHeight == ViewGroup.LayoutParams.MATCH_PARENT ? View.MeasureSpec.EXACTLY : View.MeasureSpec.AT_MOST);
 
                     // Now measure the scrolling view with the correct height
-                    parent.onMeasureChild(child, parentWidthMeasureSpec,
-                            widthUsed, heightMeasureSpec, heightUsed);
+                    parent.onMeasureChild(child, parentWidthMeasureSpec, widthUsed, heightMeasureSpec, heightUsed);
 
                     return true;
                 }
@@ -83,24 +76,19 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     }
 
     @Override
-    protected void layoutChild(final CoordinatorLayout parent, final View child,
-                               final int layoutDirection) {
+    protected void layoutChild(final CoordinatorLayout parent, final View child, final int layoutDirection) {
         final List<View> dependencies = parent.getDependencies(child);
         final View header = findFirstDependency(dependencies);
 
         if (header != null) {
-            final CoordinatorLayout.LayoutParams lp =
-                    (CoordinatorLayout.LayoutParams) child.getLayoutParams();
+            final CoordinatorLayout.LayoutParams lp = (CoordinatorLayout.LayoutParams) child.getLayoutParams();
             final Rect available = mTempRect1;
-            available.set(parent.getPaddingLeft() + lp.leftMargin,
-                    header.getBottom() + lp.topMargin,
+            available.set(parent.getPaddingLeft() + lp.leftMargin, header.getBottom() + lp.topMargin,
                     parent.getWidth() - parent.getPaddingRight() - lp.rightMargin,
-                    parent.getHeight() + header.getBottom()
-                            - parent.getPaddingBottom() - lp.bottomMargin);
+                    parent.getHeight() + header.getBottom() - parent.getPaddingBottom() - lp.bottomMargin);
 
             final Rect out = mTempRect2;
-            GravityCompat.apply(resolveGravity(lp.gravity), child.getMeasuredWidth(),
-                    child.getMeasuredHeight(), available, out, layoutDirection);
+            GravityCompat.apply(resolveGravity(lp.gravity), child.getMeasuredWidth(), child.getMeasuredHeight(), available, out, layoutDirection);
 
             final int overlap = getOverlapPixelsForOffset(header);
 
