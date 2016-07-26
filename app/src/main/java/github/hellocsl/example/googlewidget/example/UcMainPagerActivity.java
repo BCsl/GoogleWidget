@@ -23,11 +23,17 @@ public class UcMainPagerActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        findViewById(R.id.id_uc_news_content).post(new Runnable() {
+            @Override
+            public void run() {
+                findViewById(R.id.id_uc_news_header_pager);
+            }
+        });
     }
 
     @Override
     protected void initData() {
 
     }
+
 }

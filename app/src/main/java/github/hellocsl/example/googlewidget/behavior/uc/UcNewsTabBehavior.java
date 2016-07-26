@@ -53,14 +53,15 @@ public class UcNewsTabBehavior extends HeaderScrollingViewBehavior {
     }
 
     private void offsetChildAsNeeded(CoordinatorLayout parent, View child, View dependency) {
+        float offsetRange = dependency.getTop() + getFinalHeight() - child.getTop();
         int headerOffsetRange = getHeaderOffsetRange();
         int finalHeight = getFinalHeight();
         if (dependency.getTranslationY() == headerOffsetRange) {
-            child.setTranslationY(finalHeight - child.getTop());
+            child.setTranslationY(offsetRange);
         } else if (dependency.getTranslationY() == 0) {
             child.setTranslationY(0);
         } else {
-            child.setTranslationY((int) (-dependency.getTranslationY() / (getHeaderOffsetRange() * 1.0f) * (child.getTop() - dependency.getTop() + getFinalHeight())));
+            child.setTranslationY((int) (dependency.getTranslationY() / (getHeaderOffsetRange() * 1.0f) * offsetRange));
         }
     }
 
