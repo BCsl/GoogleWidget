@@ -25,13 +25,20 @@ public class TestFragment extends Fragment implements RecyclerViewAdapter.OnItem
     private RecyclerView mRecyclerView;
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private final static String KEY = "key";
+    private final static String REFRESH_SUPPORT = "refresh_support";
 
-    public static TestFragment newInstance(String desc) {
+
+    public static TestFragment newInstance(String desc, boolean refreshSupport) {
         Bundle args = new Bundle();
         args.putString(KEY, desc);
+        args.putBoolean(REFRESH_SUPPORT, refreshSupport);
         TestFragment fragment = new TestFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    public static TestFragment newInstance(String desc) {
+        return newInstance(desc, true);
     }
 
     @Override
@@ -46,6 +53,7 @@ public class TestFragment extends Fragment implements RecyclerViewAdapter.OnItem
     private void initView(ViewGroup root) {
         mRecyclerView = (RecyclerView) root.findViewById(R.id.test_recycler);
         mSwipeRefreshLayout = (SwipeRefreshLayout) root.findViewById(R.id.refresh_layout);
+        mSwipeRefreshLayout.setEnabled(getArguments().getBoolean(REFRESH_SUPPORT));
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

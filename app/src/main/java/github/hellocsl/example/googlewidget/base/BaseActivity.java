@@ -16,13 +16,17 @@ public abstract class BaseActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initContentView();
-        StatusBarCompat.compat(this, getResources().getColor(R.color.colorPrimaryDark));
+        tintStatusBar();
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
         }
         initView();
         initData();
+    }
+
+    protected void tintStatusBar() {
+        StatusBarCompat.compat(this, getResources().getColor(R.color.colorPrimaryDark));
     }
 
 
