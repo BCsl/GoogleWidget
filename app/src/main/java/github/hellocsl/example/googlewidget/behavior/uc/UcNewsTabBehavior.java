@@ -3,10 +3,12 @@ package github.hellocsl.example.googlewidget.behavior.uc;
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.util.List;
 
+import github.hellocsl.example.googlewidget.BuildConfig;
 import github.hellocsl.example.googlewidget.DemoApplication;
 import github.hellocsl.example.googlewidget.R;
 import github.hellocsl.example.googlewidget.behavior.uc.helper.HeaderScrollingViewBehavior;
@@ -26,6 +28,15 @@ public class UcNewsTabBehavior extends HeaderScrollingViewBehavior {
         super(context, attrs);
     }
 
+
+    @Override
+    protected void layoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
+        super.layoutChild(parent, child, layoutDirection);
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "layoutChild:top" + child.getTop() + ",height" + child.getHeight());
+        }
+    }
+
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency) {
         return isDependOn(dependency);
@@ -34,6 +45,9 @@ public class UcNewsTabBehavior extends HeaderScrollingViewBehavior {
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency) {
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "onDependentViewChanged: ");
+        }
         offsetChildAsNeeded(parent, child, dependency);
         return false;
     }
@@ -46,7 +60,7 @@ public class UcNewsTabBehavior extends HeaderScrollingViewBehavior {
         } else if (dependency.getTranslationY() == 0) {
             child.setTranslationY(0);
         } else {
-            child.setTranslationY((int) (-dependency.getTranslationY() / (getHeaderOffsetRange() * 1.0f) * (child.getTop() - getFinalHeight())));
+            child.setTranslationY((int) (-dependency.getTranslationY() / (getHeaderOffsetRange() * 1.0f) * (child.getTop() - dependency.getTop() + getFinalHeight())));
         }
     }
 

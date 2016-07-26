@@ -6,6 +6,7 @@ import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewConfiguration;
 
 import github.hellocsl.example.googlewidget.BuildConfig;
 import github.hellocsl.example.googlewidget.DemoApplication;
@@ -19,13 +20,21 @@ import github.hellocsl.example.googlewidget.behavior.uc.helper.ViewOffsetBehavio
  */
 public class UcNewsHeaderPagerBehavior extends ViewOffsetBehavior {
     private static final String TAG = "UcNewsHeaderPager";
+    private int mTouchSlop;
 
     public UcNewsHeaderPagerBehavior() {
+        init();
     }
 
 
     public UcNewsHeaderPagerBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
+    }
+
+    private void init() {
+        final ViewConfiguration configuration = ViewConfiguration.get(DemoApplication.getAppContext());
+        mTouchSlop = configuration.getScaledTouchSlop();
     }
 
     @Override

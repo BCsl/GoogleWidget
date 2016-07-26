@@ -13,6 +13,7 @@
         android:background="@android:color/holo_blue_light"
         android:orientation="vertical"
         app:layout_behavior="@string/behavior_uc_header_pager">
+
         <TextView
             android:id="@+id/news_tv_header_pager"
             style="@style/TextAppearance.AppCompat.Title"
@@ -23,25 +24,28 @@
             android:padding="12dip"
             android:text="WeatherPager"
             android:textColor="@android:color/white"
-        />
+            />
     </FrameLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="50dip"
-        android:layout_marginTop="-45dip"
+        android:layout_height="@dimen/uc_news_header_title_height"
+        android:layout_marginTop="@dimen/uc_news_header_title_init_offset"
         android:background="@color/colorPrimary"
         android:orientation="vertical"
         app:layout_behavior="@string/behavior_uc_title">
+
         <TextView
             android:id="@+id/news_title_tv"
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:paddingLeft="12dip"
+            android:paddingRight="12dip"
             android:text="UC头条"
             android:textColor="@android:color/white"
-        />
+            />
     </FrameLayout>
 
     <FrameLayout
@@ -51,16 +55,18 @@
         android:background="@android:color/holo_orange_light"
         android:orientation="vertical"
         app:layout_behavior="@string/behavior_uc_news_tab">
+
         <TextView
             style="@style/TextAppearance.AppCompat.Body1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_gravity="center"
             android:gravity="center"
-            android:padding="12dip"
+            android:paddingLeft="12dip"
+            android:paddingRight="12dip"
             android:text="新闻1|新闻2|新闻3|新闻4"
             android:textColor="@android:color/white"
-        />
+            />
     </FrameLayout>
 
     <android.support.v4.widget.NestedScrollView
@@ -71,10 +77,11 @@
         app:layout_behavior="@string/behavior_contents">
 
 
-        <LinearLayout android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:background="@android:color/holo_green_light"
-                      android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/holo_green_light"
+            android:orientation="vertical">
 
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
@@ -84,7 +91,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -93,7 +101,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -102,7 +111,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -111,7 +121,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -120,7 +131,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -129,7 +141,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -138,7 +151,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -147,7 +161,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -156,7 +171,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -165,7 +181,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -174,7 +191,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -183,7 +201,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -192,7 +211,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -201,7 +221,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -210,7 +231,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -219,7 +241,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -228,7 +251,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -237,7 +261,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -246,7 +271,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -255,7 +281,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -264,7 +291,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -273,7 +301,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -282,7 +311,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -291,7 +321,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -300,7 +331,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -309,7 +341,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -318,7 +351,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -327,7 +361,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -336,7 +371,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -345,7 +381,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -354,7 +391,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -363,7 +401,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -372,7 +411,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -381,7 +421,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -390,7 +431,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -399,7 +441,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -408,7 +451,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -417,7 +461,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -426,7 +471,8 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
+
             <TextView
                 style="@style/TextAppearance.AppCompat.Body1"
                 android:layout_width="match_parent"
@@ -435,7 +481,7 @@
                 android:padding="12dip"
                 android:text="UC头条"
                 android:textColor="@android:color/white"
-            />
+                />
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

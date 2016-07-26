@@ -3,8 +3,10 @@ package github.hellocsl.example.googlewidget.behavior.uc;
 import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
+import github.hellocsl.example.googlewidget.BuildConfig;
 import github.hellocsl.example.googlewidget.DemoApplication;
 import github.hellocsl.example.googlewidget.R;
 
@@ -14,12 +16,23 @@ import github.hellocsl.example.googlewidget.R;
  * Created by chensuilun on 16/7/25.
  */
 public class UcNewsTitleBehavior extends CoordinatorLayout.Behavior<View> {
+    private static final String TAG = "UcNewsTitleBehavior";
 
     public UcNewsTitleBehavior() {
     }
 
     public UcNewsTitleBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
+    }
+
+
+    @Override
+    public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
+        parent.onLayoutChild(child, layoutDirection);
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "layoutChild:top" + child.getTop() + ",height" + child.getHeight());
+        }
+        return true;
     }
 
     @Override
