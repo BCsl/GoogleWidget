@@ -28,6 +28,8 @@ public class UcNewsTitleBehavior extends CoordinatorLayout.Behavior<View> {
 
     @Override
     public boolean onLayoutChild(CoordinatorLayout parent, View child, int layoutDirection) {
+        // FIXME: 16/7/27 不知道为啥在XML设置-45dip,解析出来的topMargin少了1个px,所以这里用代码设置一遍
+        ((CoordinatorLayout.LayoutParams) child.getLayoutParams()).topMargin = -getTitleHeight();
         parent.onLayoutChild(child, layoutDirection);
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "layoutChild:top" + child.getTop() + ",height" + child.getHeight());

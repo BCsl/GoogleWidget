@@ -5,6 +5,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 
@@ -42,7 +43,11 @@ public class UcNewsHeaderPagerBehavior extends ViewOffsetBehavior {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, "onStartNestedScroll: ");
         }
-        return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0 && canScroll(child, 0);
+        return (nestedScrollAxes & ViewCompat.SCROLL_AXIS_VERTICAL) != 0 && canScroll(child, 0) && !isClosed(child);
+    }
+
+    private boolean isClosed(View child) {
+        return child.getTranslationY() == getHeaderOffsetRange();
     }
 
     private boolean canScroll(View child, float pendingDy) {
@@ -54,13 +59,25 @@ public class UcNewsHeaderPagerBehavior extends ViewOffsetBehavior {
     }
 
     @Override
+    public boolean onInterceptTouchEvent(CoordinatorLayout parent, View child, MotionEvent ev) {
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "onInterceptTouchEvent: " + child.getTranslationY());
+        }
+        if (ev.getAction() == MotionEvent.ACTION_UP && child.getTranslationY() != 0) {
+            if (child.getTranslationY() < getHeaderOffsetRange() / 3.0f) {
+                child.animate().translationY(getHeaderOffsetRange()).setDuration(300).start();
+            } else {
+                child.animate().setDuration(100).translationY(0).start();
+            }
+        }
+        return super.onInterceptTouchEvent(parent, child, ev);
+    }
+
+    @Override
     public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dx, int dy, int[] consumed) {
         super.onNestedPreScroll(coordinatorLayout, child, target, dx, dy, consumed);
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, "onNestedPreScroll() called with: dx = [" + dx + "], dy = [" + dy + "]");
-        }
         //dy>0 scroll up;dy<0,scroll down
-        float halfOfDis = dy / 2.0f;
+        float halfOfDis = dy / 4.0f;
         if (!canScroll(child, halfOfDis)) {
             child.setTranslationY(halfOfDis > 0 ? getHeaderOffsetRange() : 0);
             return;
@@ -73,6 +90,5 @@ public class UcNewsHeaderPagerBehavior extends ViewOffsetBehavior {
     private int getHeaderOffsetRange() {
         return DemoApplication.getAppContext().getResources().getDimensionPixelOffset(R.dimen.uc_news_header_pager_offset);
     }
-
 
 }
