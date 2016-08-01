@@ -52,15 +52,15 @@
         android:id="@+id/id_uc_news_tab"
         android:layout_width="match_parent"
         android:layout_height="@dimen/uc_news_tabs_height"
+        android:background="@color/colorPrimary"
         app:layout_behavior="@string/behavior_uc_news_tab"
         app:tabGravity="fill"
-        android:background="@color/colorPrimary"
         app:tabIndicatorColor="@color/colorPrimaryLight"
         app:tabSelectedTextColor="@color/colorPrimaryLight"
         app:tabTextColor="@color/colorPrimaryIcons"/>
 
     <android.support.v4.view.ViewPager
-        android:id="@id/id_uc_news_content"
+        android:id="@+id/id_uc_news_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F0F4C3"

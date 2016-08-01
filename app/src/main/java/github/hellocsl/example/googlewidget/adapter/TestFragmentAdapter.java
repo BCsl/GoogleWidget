@@ -10,12 +10,12 @@ import java.util.List;
  * Created by HelloCsl(cslgogogo@gmail.com) on 2016/3/1 0001.
  */
 public class TestFragmentAdapter extends FragmentStatePagerAdapter {
-    List<Fragment> mFragments;
+    List<? extends Fragment> mFragments;
 
 
-    public TestFragmentAdapter(List<Fragment> fragments, FragmentManager fm) {
+    public TestFragmentAdapter(List<? extends Fragment> fragments, FragmentManager fm) {
         super(fm);
-        this.mFragments=fragments;
+        this.mFragments = fragments;
     }
 
     @Override
@@ -25,6 +25,6 @@ public class TestFragmentAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return mFragments==null?0:mFragments.size();
+        return mFragments == null ? 0 : mFragments.size();
     }
 }

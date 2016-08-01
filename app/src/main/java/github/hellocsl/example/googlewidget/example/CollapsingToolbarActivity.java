@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import github.hellocsl.example.googlewidget.R;
 import github.hellocsl.example.googlewidget.adapter.RecyclerViewAdapter;
 import github.hellocsl.example.googlewidget.base.BaseActivity;
+import github.hellocsl.example.googlewidget.helper.StatusBarCompat;
 
 /**
  * Created by HelloCsl(cslgogogo@gmail.com) on 2016/3/1 0001.
@@ -29,6 +30,11 @@ public class CollapsingToolbarActivity extends BaseActivity implements AppBarLay
     public static Intent newIntent(Context context) {
         Intent intent = new Intent(context, CollapsingToolbarActivity.class);
         return intent;
+    }
+
+    @Override
+    protected void tintStatusBar() {
+        StatusBarCompat.translucentStatusBar(this, false);
     }
 
     @Override

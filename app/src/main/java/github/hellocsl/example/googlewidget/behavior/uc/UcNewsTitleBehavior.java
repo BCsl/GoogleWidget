@@ -52,6 +52,9 @@ public class UcNewsTitleBehavior extends CoordinatorLayout.Behavior<View> {
     private void offsetChildAsNeeded(CoordinatorLayout parent, View child, View dependency) {
         int headerOffsetRange = getHeaderOffsetRange();
         int titleOffsetRange = getTitleHeight();
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, "offsetChildAsNeeded:" + dependency.getTranslationY());
+        }
         if (dependency.getTranslationY() == headerOffsetRange) {
             child.setTranslationY(titleOffsetRange);
         } else if (dependency.getTranslationY() == 0) {

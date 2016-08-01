@@ -1,6 +1,7 @@
 package github.hellocsl.example.googlewidget.base;
 
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -26,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected void tintStatusBar() {
-        StatusBarCompat.compat(this, getResources().getColor(R.color.colorPrimaryDark));
+        github.hellocsl.example.googlewidget.helper.StatusBarCompat.setStatusBarColor(this, ActivityCompat.getColor(this, R.color.colorPrimaryDark));
     }
 
 

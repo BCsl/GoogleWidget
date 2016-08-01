@@ -69,6 +69,12 @@ public class TestFragment extends Fragment implements RecyclerViewAdapter.OnItem
         });
     }
 
+    public void setRefreshEnable(boolean refreshEnable) {
+        if (mSwipeRefreshLayout != null) {
+            mSwipeRefreshLayout.setEnabled(refreshEnable);
+        }
+    }
+
     private void initData() {
         String key = getArguments().getString(KEY, "default");
         ArrayList<String> res = new ArrayList<>();

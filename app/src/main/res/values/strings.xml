@@ -9,7 +9,7 @@
         <item>CollapsingToolbarLayout </item>
         <item>TabLayout</item>
         <item>AppBarLayout </item>
-        <item>CoordinatorLayout</item>
+        <item>Custom Behavior</item>
     </string-array>
 
     <string name="drawer_open">Drawer Open</string>
